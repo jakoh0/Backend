@@ -1,10 +1,19 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AuthModule } from './modules/auth/auth.module';
+import { ProfilesModule } from './modules/profiles/profiles.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    TypeOrmModule.forRoot({
+      url: '',
+      type: 'mongodb',
+      database: 'jacopo-toffolo-corso',
+      autoLoadEntities: true,
+      synchronize: true,
+    }),
+    AuthModule, ProfilesModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
