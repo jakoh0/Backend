@@ -23,4 +23,8 @@ export class ProfilesService {
     return await this.profilesRepository.create(registerRequestDto);
     console.log(registerRequestDto);
   }
+
+  async findAll() {
+    return await this.profilesRepository.findAll();
+  }
 }

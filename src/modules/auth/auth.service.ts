@@ -21,7 +21,7 @@ export class AuthService {
     // -- Error => Profilo già registrato
     // - No
     // -- Registro
-    // -- Crep un Profilo
+    // -- Creo un Profilo
     return await this.profileService.create(registerRequestDto);
     // -- Mando la mail
     // -- OK => Registrazione completata
@@ -41,7 +41,9 @@ export class AuthService {
     if (profileResponse.password !== loginRequestDto.password) {
       return 'non ok';
     }
-    return this.jwtService.sign({ message: 'FUNZIONO' });
+    return {
+      access_token: this.jwtService.sign({ userId: profileResponse.id }),
+    };
 
     // Resistuisco il token
   }

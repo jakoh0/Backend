@@ -5,16 +5,19 @@ meta {
 }
 
 post {
-  url: http://localhost:3000/auth/register
+  url: http://localhost:3000/auth/login
   body: json
   auth: none
 }
 
 body:json {
   {
-    "username": "jakoh",
     "password": "1234",
     "email": "jacopo.toffolo@antonioscarpa.edu.it"
   }
   
+}
+
+vars:post-response {
+  TOKEN: res.body.access_token
 }
