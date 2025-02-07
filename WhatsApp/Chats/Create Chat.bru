@@ -6,10 +6,17 @@ meta {
 
 post {
   url: http://localhost:3000/chats
-  body: none
+  body: json
   auth: none
 }
 
 headers {
   Authorization: Bearer {{TOKEN}}
+}
+
+body:json {
+  {
+    "name": "My Seconda Chat",
+    "participantsId": ["6df5fa95-fe62-4622-ad67-2d7d5d232c3e","59b35590-b9a7-44cd-b12b-6cbaf7c1043c"]
+  }
 }

@@ -15,9 +15,9 @@ export class ChatsController {
   constructor(private readonly chatsService: ChatsService) {}
 
   @Post()
-  create(@Body() CreateChatDto: CreateChatDto) {
+  create(@Body() createChatDto: CreateChatDto) {
     console.log(CreateChatDto);
-    return this.chatsService.create();
+    return this.chatsService.create(createChatDto);
   }
 
   @Get()

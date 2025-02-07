@@ -10,7 +10,7 @@ import { AuthGuard } from './auth.guard';
   imports: [
     JwtModule.register({
       secret: 'laMiaIncredibilePasswordSegreta',
-      signOptions: { algorithm: 'HS256', expiresIn: 300 },
+      signOptions: { algorithm: 'HS256', expiresIn: 30000 },
     }),
     ProfilesModule,
   ],
