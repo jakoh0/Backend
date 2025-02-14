@@ -1,10 +1,11 @@
 import { Body, Controller, Param, Post } from '@nestjs/common';
 import { CreateMessageDto } from './dto/create-message.dto';
 import { GetProfileId } from '../auth/profile.decorator';
+import { MessagesService } from './messages.service';
 
 @Controller('chats/:chatId/messages')
 export class MessagesController {
-  //   constructor(private readonly messagesService: MessagesService) {}
+  constructor(private readonly messagesService: MessagesService) {}
 
   @Post()
   create(
@@ -12,7 +13,6 @@ export class MessagesController {
     @Body() createMessageDto: CreateMessageDto,
     @GetProfileId() profileId: string,
   ) {
-    console.log(chatId, createMessageDto, profileId);
-    return 'FUNZIONO';
+    return this.messagesService.create(chatId, createMessageDto, profileId);
   }
 }

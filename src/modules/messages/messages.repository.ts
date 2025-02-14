@@ -1,5 +1,4 @@
 import { MongoRepository } from 'typeorm/repository/MongoRepository';
-import { ChatEntity } from '../chats/entities/chat.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Injectable } from '@nestjs/common';
 import { MessageEntity } from './entities/message.entity';
@@ -9,8 +8,8 @@ import { CreateMessageDto } from './dto/create-message.dto';
 @Injectable()
 export class MessagesRepository {
   constructor(
-    @InjectRepository(ChatEntity)
-    private readonly dbConnection: MongoRepository<ChatEntity>,
+    @InjectRepository(MessageEntity)
+    private readonly dbConnection: MongoRepository<MessageEntity>,
   ) {}
   async create(
     chatId: string,
